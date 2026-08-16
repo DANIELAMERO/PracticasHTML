@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Destinos Turísticos</title>
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #071c21;
+            color: white;
+            overflow: hidden;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 25px 80px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #2dd4bf;
+        }
+
+        .slider {
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            background-size: cover;
+            background-position: center;
+
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .slide::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(
+                90deg,
+                rgba(0, 25, 30, 0.85),
+                rgba(0, 25, 30, 0.35),
+                rgba(0, 0, 0, 0.15)
+            );
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+
+        .contenido {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+
+            transform: translateY(-50%);
+
+            width: 520px;
+
+            z-index: 2;
+        }
+
+        .contenido span {
+            font-size: 18px;
+            color: #2dd4bf;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .contenido h1 {
+            font-size: 70px;
+            margin: 20px 0;
+
+            line-height: 1;
+        }
+
+        .contenido p {
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #e5e7eb;
+        }
+
+        .contenido button {
+
+            padding: 15px 35px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: #2dd4bf;
+            color: #062b30;
+
+            font-weight: bold;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .contenido button:hover {
+            background: #fb7185;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .miniaturas {
+
+            position: absolute;
+
+            bottom: 60px;
+            right: 80px;
+
+            display: flex;
+            gap: 20px;
+
+            z-index: 10;
+        }
+
+        .card {
+
+            width: 170px;
+            height: 220px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            transform: scale(0.9);
+
+            transition: 0.5s;
+
+            border: 2px solid transparent;
+        }
+
+        .card.active {
+            transform: scale(1);
+            border-color: #2dd4bf;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card h3 {
+
+            position: absolute;
+
+            bottom: 15px;
+            left: 15px;
+
+            color: white;
+
+            z-index: 2;
+        }
+
+        .controles {
+
+            position: absolute;
+
+            bottom: 35px;
+            left: 80px;
+
+            z-index: 20;
+        }
+
+        .controles button {
+
+            width: 50px;
+            height: 50px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            margin-right: 10px;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            background: #ffffff;
+            color: #07363c;
+
+            transition: 0.3s;
+        }
+
+        .controles button:hover {
+            background: #2dd4bf;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 900px) {
+
+            header {
+                padding: 20px 30px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+            .contenido {
+                left: 30px;
+                width: 80%;
+            }
+
+            .contenido h1 {
+                font-size: 50px;
+            }
+
+            .miniaturas {
+                right: 30px;
+                bottom: 30px;
+            }
+
+            .card {
+                width: 100px;
+                height: 140px;
+            }
+
+            .controles {
+                left: 30px;
+                bottom: 40px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            Explora Ecuador
+        </div>
+
+        <nav>
+            <a href="Index.html">Inicio</a>
+            <a href="Viajes.html">Viajes</a>
+            <a href="Contactos.html">Contactos</a>
+        </nav>
+
+    </header>
+
+
+    <section class="slider">
+
+
+        <div class="slide active"
+            style="background-image: url('https://andeanphotoexpeditions.com/wp-content/uploads/2023/07/Galapagos-Islands-Tour-Ecuador-19.jpeg');">
+
+            <div class="contenido">
+
+                <span>Galápagos</span>
+
+                <h1>
+                    Islas<br>
+                    Galápagos
+                </h1>
+
+                <p>
+                    Las Islas Galápagos son uno de los destinos naturales
+                    más extraordinarios del Ecuador. Sus paisajes volcánicos,
+                    playas cristalinas y especies únicas convierten al
+                    archipiélago en un lugar perfecto para descubrir la
+                    naturaleza.
+                </p>
+
+                <button onclick="window.location.href='https://es.wikipedia.org/wiki/Islas_Gal%C3%A1pagos'">
+                    Descubrir destino
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="slide"
+            style="background-image: url('https://th.bing.com/th/id/R.2e6ab62230fb15e4fe45ab135091508c?rik=s%2fvNsjpI8BhDXg&pid=ImgRaw&r=0');">
+
+            <div class="contenido">
+
+                <span>Tungurahua</span>
+
+                <h1>
+                    Baños<br>
+                    de Agua Santa
+                </h1>
+
+                <p>
+                    Baños de Agua Santa es uno de los destinos favoritos
+                    para quienes buscan aventura. Cascadas, montañas,
+                    senderos y actividades extremas hacen de esta ciudad
+                    un lugar ideal para vivir nuevas experiencias.
+                </p>
+
+                <button onclick="window.location.href='https://www.getyourguide.com/es-es/-l2262/?cmp=bing&ad_id=77721948345919&adgroup_id=1243549012328849&bid_match_type=be&campaign_id=710892847&device=c&feed_item_id=&keyword=ba%C3%B1os+de+agua+santa&loc_interest_ms=142206&loc_physical_ms=228801&match_type=e&msclkid=d8b6c6b77b111e225c9aac3787045de7&network=o&partner_id=CD951&target_id=kwd-77722203487927%3Aloc-56&utm_adgroup=lc%3D2262%3Aba%C3%B1os+de+agua+santa%7Cfn%3Df3%7Cci%3D937%3Athings+to+do&utm_campaign=dc%3D122%3Aec%7Clc%3D2262%3Aba%C3%B1os+de+agua+santa%7Cct%3Dcore%7Cln%3D109%3Aes%7Ctc%3Dall&utm_keyword=ba%C3%B1os+de+agua+santa&utm_medium=paid_search&utm_query=ba%C3%B1os+de+agua+santa+&utm_source=bing&visitor-id=F7THEYOXJPJTN65Q57KUBFIQB2DX1VFQ&locale_autoredirect_optout=true'">
+                    Descubrir destino
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="slide"
+            style="background-image: url('https://images.musement.com/cover/0096/36/api-media-5e9d777711b450-58620310-jpeg_header-9535606.jpeg');">
+
+            <div class="contenido">
+
+                <span>Azuay</span>
+
+                <h1>
+                    Cuenca<br>
+                    Ecuador
+                </h1>
+
+                <p>
+                    Cuenca combina historia, arquitectura y tradición.
+                    Sus calles coloniales, plazas, iglesias y riqueza
+                    cultural hacen de esta ciudad un destino ideal para
+                    conocer una parte importante de la identidad ecuatoriana.
+                </p>
+
+                <button onclick="window.location.href='https://es.wikipedia.org/wiki/Cuenca_(Ecuador)'">
+                    Descubrir destino
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="miniaturas">
+
+        <div class="card active">
+
+            <img src="https://andeanphotoexpeditions.com/wp-content/uploads/2023/07/Galapagos-Islands-Tour-Ecuador-19.jpeg">
+
+            <h3>Galápagos</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="https://th.bing.com/th/id/R.2e6ab62230fb15e4fe45ab135091508c?rik=s%2fvNsjpI8BhDXg&pid=ImgRaw&r=0">
+
+            <h3>Baños</h3>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="https://images.musement.com/cover/0096/36/api-media-5e9d777711b450-58620310-jpeg_header-9535606.jpeg">
+
+            <h3>Cuenca</h3>
+
+        </div>
+
+    </div>
+
+    <div class="controles">
+
+        <button id="anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button id="siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+    <script>
+
+        const slides = document.querySelectorAll(".slide");
+        const cards = document.querySelectorAll(".card");
+
+        const siguiente = document.getElementById("siguiente");
+        const anterior = document.getElementById("anterior");
+
+        let indice = 0;
+
+
+        function mostrarSlide(i) {
+
+            slides.forEach(slide => {
+                slide.classList.remove("active");
+            });
+
+            cards.forEach(card => {
+                card.classList.remove("active");
+            });
+
+            slides[i].classList.add("active");
+            cards[i].classList.add("active");
+        }
+
+
+
+        mostrarSlide(indice);
+
+
+        siguiente.addEventListener("click", () => {
+
+            indice++;
+
+            if (indice >= slides.length) {
+                indice = 0;
+            }
+
+            mostrarSlide(indice);
+
+        });
+
+
+        anterior.addEventListener("click", () => {
+
+            indice--;
+
+            if (indice < 0) {
+                indice = slides.length - 1;
+            }
+
+            mostrarSlide(indice);
+
+        });
+
+
+
+        cards.forEach((card, i) => {
+
+            card.addEventListener("click", () => {
+
+                indice = i;
+
+                mostrarSlide(indice);
+
+            });
+
+        });
+
+        setInterval(() => {
+
+            indice++;
+
+            if (indice >= slides.length) {
+                indice = 0;
+            }
+
+            mostrarSlide(indice);
+
+        }, 5000);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,445 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Viajes | Explora Ecuador</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#071c21;
+    color:white;
+}
+
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:25px 80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(4,25,29,.80);
+    backdrop-filter:blur(10px);
+
+    z-index:100;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:30px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#2dd4bf;
+}
+
+.hero{
+    height:50vh;
+
+    background:
+    linear-gradient(
+        rgba(0,25,30,.45),
+        rgba(0,25,30,.65)
+    ),
+    url("https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=2000&q=80")
+    center/cover;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+}
+
+.hero h1{
+    position:relative;
+    font-size:60px;
+    z-index:2;
+}
+
+.destinos{
+    width:90%;
+
+    max-width:1250px;
+
+    margin:70px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+}
+
+.card{
+    background:#102c31;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    border:1px solid rgba(45,212,191,.08);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.45);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.card:hover img{
+    transform:scale(1.06);
+}
+
+
+.card .info{
+    padding:25px;
+}
+
+.card h2{
+    margin-bottom:15px;
+
+    font-size:28px;
+}
+
+.card p{
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+    color:#cbd5d7;
+}
+
+.card button{
+
+    padding:12px 30px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#2dd4bf;
+
+    color:#062b30;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.card button:hover{
+
+    background:#fb7185;
+
+    color:white;
+
+    transform:translateX(5px);
+}
+
+.frase{
+
+    width:90%;
+
+    max-width:1250px;
+
+    margin:80px auto;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0d3b42,
+        #123137
+    );
+}
+
+.frase i{
+
+    color:#2dd4bf;
+
+    font-size:35px;
+
+    margin-bottom:20px;
+}
+
+.frase h2{
+
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.frase p{
+
+    color:#cbd5d7;
+
+    line-height:1.7;
+}
+
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#041417;
+
+    color:#8fa7aa;
+
+    border-top:
+    1px solid rgba(45,212,191,.1);
+}
+
+@media(max-width:800px){
+
+    header{
+        padding:20px 30px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    nav a{
+        margin-left:12px;
+        font-size:13px;
+    }
+
+    .hero{
+        height:45vh;
+    }
+
+    .hero h1{
+        font-size:45px;
+        text-align:center;
+    }
+
+    .destinos{
+        width:90%;
+        grid-template-columns:1fr;
+    }
+
+    .card img{
+        height:250px;
+    }
+
+    .frase h2{
+        font-size:28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<header>
+
+<div class="logo">
+Explora Ecuador
+</div>
+
+<nav>
+
+<a href="Index.html">
+Inicio
+</a>
+
+<a href="Viajes.html">
+Viajes
+</a>
+
+<a href="Contactos.html">
+Contactos
+</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>
+Nuestros Destinos
+</h1>
+
+</section>
+
+<section class="destinos">
+
+<div class="card">
+
+<img src="https://andeanphotoexpeditions.com/wp-content/uploads/2023/07/Galapagos-Islands-Tour-Ecuador-19.jpeg">
+
+<div class="info">
+
+<h2>
+Islas Galápagos
+</h2>
+
+<p>
+Un paraíso natural donde puedes descubrir
+especies únicas, paisajes volcánicos y
+playas de aguas cristalinas. Es un destino
+perfecto para conectar con la naturaleza.
+</p>
+
+<button onclick="window.open('https://www.gobiernogalapagos.gob.ec/')">
+
+Explorar
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://th.bing.com/th/id/R.2e6ab62230fb15e4fe45ab135091508c?rik=s%2fvNsjpI8BhDXg&pid=ImgRaw&r=0">
+
+<div class="info">
+
+<h2>
+Baños de Agua Santa
+</h2>
+
+<p>
+Montañas, cascadas y aventura se combinan
+en uno de los destinos más emocionantes
+del Ecuador. Ideal para disfrutar de
+naturaleza y actividades al aire libre.
+</p>
+
+<button onclick="window.open('https://www.turismo.gob.ec/')">
+
+Explorar
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.musement.com/cover/0096/36/api-media-5e9d777711b450-58620310-jpeg_header-9535606.jpeg">
+
+<div class="info">
+
+<h2>
+Cuenca
+</h2>
+
+<p>
+Una ciudad donde la historia y la arquitectura
+se encuentran. Sus calles, plazas y edificios
+tradicionales crean una experiencia cultural
+única para quienes desean conocer el Ecuador.
+</p>
+
+<button onclick="window.open('https://www.cuenca.gob.ec/')">
+
+Explorar
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</div>
+
+</div>
+
+
+</section>
+
+<section class="frase">
+
+<i class="fa-solid fa-plane"></i>
+
+<h2>
+Tu próxima aventura comienza aquí
+</h2>
+
+<p>
+Descubre nuevos lugares, conoce nuevas culturas
+y crea recuerdos que duren toda la vida.
+</p>
+
+</section>
+
+
+
+<footer>
+
+© 2026 Explora Ecuador
+
+</footer>
+
+
+</body>
+
+</html>
+```
